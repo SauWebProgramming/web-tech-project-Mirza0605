@@ -80,7 +80,7 @@ export async function loadFavorites() {
             list = list.filter(x => !(x.id == id && x.type == type));
             localStorage.setItem("favorites", JSON.stringify(list));
 
-            loadFavorites(); // sayfayı yenile
+            loadFavorites(); 
         });
     } catch (err) {
         console.error("Favoriler yüklenirken hata:", err);

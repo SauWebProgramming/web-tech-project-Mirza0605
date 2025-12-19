@@ -42,7 +42,7 @@ export async function loadSeries() {
     const genreSelect = document.getElementById("seriesGenre");
     const yearSelect = document.getElementById("seriesYear");
 
-    // 🎭 Dizi türleri yükle
+    //  Dizi türleri yükle
     let genres = [];
     try {
         const res = await fetch(`${BASE_URL}/genre/tv/list?api_key=${API_KEY}&language=tr-TR`);
@@ -70,17 +70,17 @@ export async function loadSeries() {
     grid.innerHTML = "Yükleniyor...";
 
     try {
-        // 📌 İlk 2 sayfayı çekiyoruz
+        //  İlk 2 sayfayı çekiyoruz
         const res1 = await fetch(urlBase + "&page=1");
         const res2 = await fetch(urlBase + "&page=2");
 
         const data1 = await res1.json();
         const data2 = await res2.json();
 
-        // 📌 iki sayfanın sonuçlarını birleştiriyoruz
+        //  iki sayfanın sonuçlarını birleştiriyoruz
         const allResults = [...(data1.results || []), ...(data2.results || [])];
 
-        // 📌 sadece ilk 30 dizi
+        
         const results = allResults.slice(0, 30);
 
         grid.innerHTML = results

@@ -61,8 +61,7 @@ export async function loadDetails() {
             </section>
         `;
 
-        /* ⭐ LISTEME EKLE */
-     /* ⭐ LISTE BUTONU — Dinamik Toggle */
+        /* LISTEME EKLE */ 
 const listBtn = document.getElementById("listBtn");
 let myList = JSON.parse(localStorage.getItem("mylist") || "[]");
 
@@ -71,13 +70,13 @@ let inList = myList.some(item => item.id == id && item.type == type);
 // İlk görünüm
 if (inList) {
     listBtn.textContent = "Listemde ";
-    listBtn.classList.add("fav-active"); // aynı görünüm için favori class'ını kullandık
+    listBtn.classList.add("fav-active"); 
 }
 
-// Tıklama
+
 listBtn.addEventListener("click", () => {
 
-    // **Eğer listede varsa → kaldır**
+    // Eğer listede varsa → kaldır
     if (inList) {
         myList = myList.filter(item => !(item.id == id && item.type == type));
         localStorage.setItem("mylist", JSON.stringify(myList));
@@ -89,7 +88,7 @@ listBtn.addEventListener("click", () => {
         return;
     }
 
-    // **Eğer listede değilse → ekle**
+    // Eğer listede değilse → ekle**
     myList.push({
         id,
         type,
@@ -105,7 +104,7 @@ listBtn.addEventListener("click", () => {
     inList = true;
 });
 
-        /* ⭐ FAVORİ TOGGLE BUTONU */
+        
         const favBtn = document.getElementById("favBtn");
         let favorites = JSON.parse(localStorage.getItem("favorites") || "[]");
 

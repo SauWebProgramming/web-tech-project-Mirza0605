@@ -5,7 +5,7 @@ export function loadList() {
 
     const list = JSON.parse(localStorage.getItem("mylist") || "[]");
 
-    // 🔥 Eğer liste boşsa FAVORİLERLE AYNI TÜM ORTALANMIŞ TASARIM
+   
     if (!list.length) {
         app.innerHTML = `
             <section class="empty-state">
@@ -16,7 +16,7 @@ export function loadList() {
         return;
     }
 
-    // 🔥 Boş değilse kartlı liste görünümü
+    //  Boş değilse kartlı liste görünümü
     app.innerHTML = `
         <section>
             <h2 class="section-title">Listem</h2>
@@ -26,7 +26,7 @@ export function loadList() {
 
     const grid = document.getElementById("myListGrid");
 
-    // ✔ Kartları çiz
+    //  Kartları çiz
     grid.innerHTML = list
         .map(item => `
             <article class="card">
@@ -52,7 +52,7 @@ export function loadList() {
         `)
         .join("");
 
-    // ✔ Silme işlemi
+    //  Silme işlemi
     document.querySelectorAll(".remove-btn").forEach(btn => {
         btn.addEventListener("click", () => {
             const id = btn.dataset.id;
@@ -63,7 +63,7 @@ export function loadList() {
 
             localStorage.setItem("mylist", JSON.stringify(stored));
 
-            loadList(); // sayfayı yenile
+            loadList(); 
         });
     });
 }

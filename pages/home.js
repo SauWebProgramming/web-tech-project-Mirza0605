@@ -63,7 +63,7 @@ export async function loadHome() {
         genreSelect.appendChild(opt);
     });
 
-    // 🔥 En önemli kısım → 30 posterli içerik GARANTİ
+    
     async function fetchAndRender(url) {
         moviesGrid.innerHTML = "Yükleniyor...";
         let results = [];
@@ -73,7 +73,7 @@ export async function loadHome() {
             const res = await fetch(`${url}&page=${page}`);
             const data = await res.json();
             if (data.results?.length) {
-                // posterli olanlar
+               
                 const clean = data.results.filter(m => m.poster_path);
                 results.push(...clean);
             }
